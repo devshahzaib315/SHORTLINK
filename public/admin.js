@@ -1,0 +1,1 @@
+document.getElementById("load").onclick=async()=>{const out=document.getElementById("out");out.textContent="Loading…";try{const r=await fetch("/api/admin",{headers:{"authorization":"Bearer "+document.getElementById("pw").value}});const d=await r.json();if(!r.ok)throw Error(d.error);out.textContent=JSON.stringify(d.records,null,2);}catch(e){out.textContent=e.message;}};
